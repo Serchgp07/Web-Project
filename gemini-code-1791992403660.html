@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mr. Boneless | Los mejores boneless y alitas en Querétaro</title>
+  <title>Mr. Boneless | Menú e Prepedidos en Línea</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -14,6 +14,8 @@
       --text: #ffffff;
       --text-muted: #a0a0a0;
       --star: #ffc107;
+      --whatsapp: #25d366;
+      --whatsapp-hover: #1da851;
     }
 
     * {
@@ -27,11 +29,12 @@
       background-color: var(--dark);
       color: var(--text);
       line-height: 1.6;
+      padding-bottom: 80px;
     }
 
     header {
       background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1527477396000-e27163b481c2?q=80&w=1200&auto=format&fit=crop') center/cover;
-      padding: 80px 20px;
+      padding: 60px 20px;
       text-align: center;
     }
 
@@ -47,160 +50,237 @@
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       font-weight: 800;
       margin-bottom: 10px;
     }
 
     .rating-header {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: var(--star);
       margin-bottom: 15px;
     }
 
     .rating-header span {
       color: var(--text-muted);
-      font-size: 1rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .btn {
-      padding: 12px 28px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary {
-      background-color: var(--primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background-color: var(--primary-hover);
-    }
-
-    .btn-secondary {
-      background-color: transparent;
-      border: 2px solid white;
-      color: white;
-    }
-
-    .btn-secondary:hover {
-      background-color: white;
-      color: var(--dark);
+      font-size: 0.95rem;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 50px 20px;
+      padding: 30px 20px;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-bottom: 50px;
-    }
-
-    .card {
-      background-color: var(--card-bg);
-      padding: 30px;
-      border-radius: 12px;
-      border: 1px solid #2a2a2a;
-    }
-
-    .card h2 {
+    /* Menú Interactivo */
+    .section-title {
       color: var(--primary);
+      font-size: 1.8rem;
       margin-bottom: 20px;
-      font-size: 1.5rem;
-    }
-
-    .info-item {
-      margin-bottom: 15px;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
-    .info-item strong {
-      color: var(--text);
-    }
-
-    .menu-highlights {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-    }
-
-    .menu-item {
-      background-color: #282828;
-      padding: 15px;
-      border-radius: 8px;
       text-align: center;
-      font-weight: 600;
+      border-bottom: 2px solid #2a2a2a;
+      padding-bottom: 10px;
     }
 
-    .reviews-section h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 2rem;
-    }
-
-    .reviews-grid {
+    .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
+      margin-bottom: 40px;
     }
 
-    .review-card {
+    .menu-card {
       background-color: var(--card-bg);
+      border-radius: 12px;
       padding: 20px;
-      border-radius: 10px;
-      border-left: 4px solid var(--primary);
+      border: 1px solid #2a2a2a;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .review-author {
-      font-weight: 700;
+    .menu-card h3 {
+      font-size: 1.2rem;
       margin-bottom: 5px;
     }
 
-    .stars {
-      color: var(--star);
-      margin-bottom: 10px;
+    .menu-card p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 15px;
     }
 
-    .features-list {
+    .price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 15px;
+    }
+
+    .option-select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      background: #2a2a2a;
+      color: white;
+      border: 1px solid #444;
+      margin-bottom: 15px;
+      font-family: inherit;
+    }
+
+    .qty-controls {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 15px;
+      align-items: center;
+      gap: 12px;
     }
 
-    .feature-tag {
-      background-color: #2a2a2a;
-      padding: 6px 14px;
-      border-radius: 15px;
+    .qty-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .qty-btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .qty-count {
+      font-size: 1.1rem;
+      font-weight: 600;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    /* Floating Bar / Carrito Botón */
+    .cart-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #181818;
+      border-top: 2px solid var(--primary);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
+      z-index: 100;
+    }
+
+    .cart-total {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .btn-whatsapp {
+      background-color: var(--whatsapp);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: var(--whatsapp-hover);
+    }
+
+    /* Modal Checkout */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 200;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background-color: var(--card-bg);
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      border: 1px solid #333;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal h2 {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .order-summary {
+      background: #121212;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
       font-size: 0.85rem;
       color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #333;
+      background: #222;
+      color: white;
+      font-family: inherit;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn-close {
+      background: #333;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* Info Extra */
+    .info-card {
+      background-color: var(--card-bg);
+      padding: 25px;
+      border-radius: 12px;
+      margin-top: 30px;
+      border: 1px solid #2a2a2a;
     }
 
     footer {
       text-align: center;
-      padding: 30px 20px;
-      background-color: #0a0a0a;
+      padding: 20px;
       color: var(--text-muted);
-      font-size: 0.9rem;
-      border-top: 1px solid #222;
+      font-size: 0.85rem;
     }
   </style>
 </head>
@@ -210,86 +290,257 @@
     <span class="badge">Restaurante</span>
     <h1>Mr. Boneless</h1>
     <div class="rating-header">
-      ★ 4.8 <span>(18 reseñas)</span> • $100 - $200 por persona
-    </div>
-    <div class="hero-buttons">
-      <a href="tel:4428677381" class="btn btn-primary">Pedir en línea / Teléfono</a>
-      <a href="https://maps.google.com/?q=Camino+Real+de+Carretas+359-Loc+12,+Milenio+III,+76060+Santiago+de+Querétaro,+Qro." target="_blank" class="btn btn-secondary">Cómo llegar</a>
+      ★ 4.8 <span>(18 reseñas)</span> • Camino Real de Carretas 359-Loc 12, Milenio III
     </div>
   </header>
 
   <div class="container">
-    
-    <div class="grid-2">
-      <!-- Información del Local -->
-      <div class="card">
-        <h2>Ubicación y Horarios</h2>
-        <div class="info-item">
-          📍 <div><strong>Dirección:</strong><br>Camino Real de Carretas 359-Loc 12, Milenio III, 76060 Santiago de Querétaro, Qro.</div>
+
+    <h2 class="section-title">Menú Interactivo</h2>
+    <div class="menu-grid">
+
+      <!-- Producto 1 -->
+      <div class="menu-card" data-id="boneless" data-name="Orden de Boneless" data-price="140">
+        <div>
+          <h3>Boneless (300g)</h3>
+          <p>Trozos de pechuga empanizados al momento, crujientes y jugosos.</p>
+          <div class="price">$140 MXN</div>
+          <select class="option-select sauce-select">
+            <option value="Buffalo">Salsa: Buffalo (Recomendada)</option>
+            <option value="Hot BBQ">Salsa: Hot BBQ</option>
+            <option value="BBQ Tradicional">Salsa: BBQ Tradicional</option>
+            <option value="Lemon Pepper">Sabor: Lemon Pepper</option>
+          </select>
         </div>
-        <div class="info-item">
-          🕒 <div><strong>Horario:</strong><br>Abre a la 1:30 p.m.</div>
-        </div>
-        <div class="info-item">
-          📞 <div><strong>Teléfono:</strong><br><a href="tel:4428677381" style="color: var(--primary); text-decoration: none;">442 867 7381</a></div>
-        </div>
-        <div class="info-item">
-          💳 <div><strong>Pagos:</strong> Tarjetas de crédito y débito</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="updateQty('boneless', -1)">-</button>
+          <span class="qty-count" id="qty-boneless">0</span>
+          <button class="qty-btn" onclick="updateQty('boneless', 1)">+</button>
         </div>
       </div>
 
-      <!-- Menú Destacado -->
-      <div class="card">
-        <h2>Menú Destacado</h2>
-        <p style="margin-bottom: 15px; color: var(--text-muted);">Especialidades preparadas al momento:</p>
-        <div class="menu-highlights">
-          <div class="menu-item">🍗 Boneless</div>
-          <div class="menu-item">🔥 Alitas Buffalo</div>
-          <div class="menu-item">🍯 Hot BBQ</div>
-          <div class="menu-item">🍔 Hamburguesas</div>
-          <div class="menu-item">🍟 Papas Fritas</div>
+      <!-- Producto 2 -->
+      <div class="menu-card" data-id="alitas" data-name="Orden de Alitas" data-price="130">
+        <div>
+          <h3>Alitas de Pollo</h3>
+          <p>Alitas bien doradas y bañadas en la salsa de tu elección.</p>
+          <div class="price">$130 MXN</div>
+          <select class="option-select sauce-select">
+            <option value="Buffalo">Salsa: Buffalo</option>
+            <option value="Hot BBQ">Salsa: Hot BBQ</option>
+            <option value="BBQ Tradicional">Salsa: BBQ Tradicional</option>
+            <option value="Mango Habanero">Salsa: Mango Habanero</option>
+          </select>
         </div>
-        <h3 style="margin-top: 20px; font-size: 1.1rem;">Servicios y Ambiente</h3>
-        <div class="features-list">
-          <span class="feature-tag">Consumo en el lugar</span>
-          <span class="feature-tag">Para llevar / Domicilio</span>
-          <span class="feature-tag">Ambiente Relajado e Informal</span>
-          <span class="feature-tag">Estacionamiento gratuito</span>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="updateQty('alitas', -1)">-</button>
+          <span class="qty-count" id="qty-alitas">0</span>
+          <button class="qty-btn" onclick="updateQty('alitas', 1)">+</button>
         </div>
       </div>
+
+      <!-- Producto 3 -->
+      <div class="menu-card" data-id="hamburguesa" data-name="Hamburguesa Clásica" data-price="110">
+        <div>
+          <h3>Hamburguesa Clásica</h3>
+          <p>Con carne de res preparada en casa, queso cheddar, lechuga y jitomate.</p>
+          <div class="price">$110 MXN</div>
+        </div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="updateQty('hamburguesa', -1)">-</button>
+          <span class="qty-count" id="qty-hamburguesa">0</span>
+          <button class="qty-btn" onclick="updateQty('hamburguesa', 1)">+</button>
+        </div>
+      </div>
+
+      <!-- Producto 4 -->
+      <div class="menu-card" data-id="papas" data-name="Papas Fritas" data-price="50">
+        <div>
+          <h3>Papas Fritas</h3>
+          <p>Papas crujientes sazonadas al punto.</p>
+          <div class="price">$50 MXN</div>
+        </div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="updateQty('papas', -1)">-</button>
+          <span class="qty-count" id="qty-papas">0</span>
+          <button class="qty-btn" onclick="updateQty('papas', 1)">+</button>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Reseñas -->
-    <div class="reviews-section">
-      <h2>Lo que dicen nuestros clientes</h2>
-      <div class="reviews-grid">
-        
-        <div class="review-card">
-          <div class="review-author">Sergio GP</div>
-          <div class="stars">★★★★★</div>
-          <p>"Muy rico sus Boneless, muy recomendable!!!"</p>
-        </div>
-
-        <div class="review-card">
-          <div class="review-author">Laura Leticia Álvarez</div>
-          <div class="stars">★★★★★</div>
-          <p>"Estas alitas están de 10 y los boneless 🤤 se nota que están hechos al momento 👌 además el servicio super rápido..."</p>
-        </div>
-
-        <div class="review-card">
-          <div class="review-author">QUERÉTARO CITY</div>
-          <div class="stars">★★★★★</div>
-          <p>"El equipo de Querétaro City aprueba estas alitas, pedimos de Buffalo y Hot BBQ y no nos arrepentimos de nada, muy rico todo."</p>
-        </div>
-
-      </div>
+    <!-- Info General -->
+    <div class="info-card">
+      <h3 style="color: var(--primary); margin-bottom: 10px;">Información del Local</h3>
+      <p>📍 <strong>Ubicación:</strong> Camino Real de Carretas 359-Loc 12, Milenio III, Qro.</p>
+      <p>🕒 <strong>Horario:</strong> Abre a la 1:30 p.m.</p>
+      <p>💳 <strong>Formas de pago:</strong> Tarjetas de crédito, débito y efectivo.</p>
+      <p>🚗 <strong>Estacionamiento:</strong> Gratuito y amplio espacio disponible.</p>
     </div>
 
+  </div>
+
+  <!-- Barra Inferior del Carrito -->
+  <div class="cart-bar">
+    <div>
+      <span style="color: var(--text-muted); font-size: 0.9rem;">Total estimado:</span>
+      <div class="cart-total" id="cart-total-display">$0 MXN</div>
+    </div>
+    <button class="btn-whatsapp" onclick="openCheckout()">Ver Pedido / Pedir 📲</button>
+  </div>
+
+  <!-- Modal Checkout / Confirmación -->
+  <div class="modal" id="checkout-modal">
+    <div class="modal-content">
+      <h2>Confirmar Pedido</h2>
+      
+      <div class="order-summary" id="order-summary-content">
+        No has seleccionado ningún platillo.
+      </div>
+
+      <form id="order-form" onsubmit="sendWhatsAppOrder(event)">
+        <div class="form-group">
+          <label for="client-name">Tu nombre *</label>
+          <input type="text" id="client-name" required placeholder="Ej. Sergio García">
+        </div>
+
+        <div class="form-group">
+          <label for="order-type">Tipo de servicio *</label>
+          <select id="order-type">
+            <option value="Para Recoger en Sucursal">Para Recoger en Sucursal</option>
+            <option value="A Domicilio">A Domicilio</option>
+            <option value="Comer en el Lugar">Comer en el Lugar (Mesa)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="client-address">Dirección / Notas para la entrega (Opcional)</label>
+          <textarea id="client-address" rows="2" placeholder="Ej. Calle, número, colonia o especificaciones..."></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-close" onclick="closeCheckout()">Cancelar</button>
+          <button type="submit" class="btn-whatsapp" style="flex: 1;">Enviar a WhatsApp 📲</button>
+        </div>
+      </form>
+
+    </div>
   </div>
 
   <footer>
     <p>&copy; 2026 Mr. Boneless — Milenio III, Santiago de Querétaro, Qro.</p>
   </footer>
+
+  <script>
+    // Estado del Carrito
+    const cart = {
+      boneless: 0,
+      alitas: 0,
+      hamburguesa: 0,
+      papas: 0
+    };
+
+    const prices = {
+      boneless: 140,
+      alitas: 130,
+      hamburguesa: 110,
+      papas: 50
+    };
+
+    const names = {
+      boneless: "Boneless (300g)",
+      alitas: "Alitas de Pollo",
+      hamburguesa: "Hamburguesa Clásica",
+      papas: "Papas Fritas"
+    };
+
+    function updateQty(itemId, change) {
+      if (cart[itemId] + change >= 0) {
+        cart[itemId] += change;
+        document.getElementById(`qty-${itemId}`).innerText = cart[itemId];
+        calculateTotal();
+      }
+    }
+
+    function calculateTotal() {
+      let total = 0;
+      for (const key in cart) {
+        total += cart[key] * prices[key];
+      }
+      document.getElementById('cart-total-display').innerText = `$${total} MXN`;
+      return total;
+    }
+
+    function openCheckout() {
+      const total = calculateTotal();
+      if (total === 0) {
+        alert("Por favor, agrega al menos un producto a tu pedido.");
+        return;
+      }
+
+      let summaryHtml = "<strong>Resumen de tu compra:</strong><br><ul style='margin-left: 20px; margin-top: 8px;'>";
+      
+      for (const key in cart) {
+        if (cart[key] > 0) {
+          let sauceInfo = "";
+          const cardEl = document.querySelector(`.menu-card[data-id="${key}"]`);
+          const sauceSelect = cardEl ? cardEl.querySelector('.sauce-select') : null;
+          if (sauceSelect) {
+            sauceInfo = ` <em>(${sauceSelect.value})</em>`;
+          }
+
+          summaryHtml += `<li>${cart[key]}x ${names[key]}${sauceInfo} — $${cart[key] * prices[key]} MXN</li>`;
+        }
+      }
+
+      summaryHtml += `</ul><br><strong>Total: $${total} MXN</strong>`;
+      document.getElementById('order-summary-content').innerHTML = summaryHtml;
+      document.getElementById('checkout-modal').style.display = 'flex';
+    }
+
+    function closeCheckout() {
+      document.getElementById('checkout-modal').style.display = 'none';
+    }
+
+    function sendWhatsAppOrder(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('client-name').value;
+      const serviceType = document.getElementById('order-type').value;
+      const address = document.getElementById('client-address').value;
+      const phone = "524428677381"; // Teléfono oficial de Mr. Boneless
+
+      let text = `Hola *Mr. Boneless*, me gustaría hacer el siguiente pedido:\n\n`;
+      text += `👤 *Cliente:* ${name}\n`;
+      text += `🛵 *Modalidad:* ${serviceType}\n`;
+      if (address.trim() !== "") {
+        text += `📍 *Dirección/Notas:* ${address}\n`;
+      }
+      text += `\n📋 *Detalle del Pedido:*\n`;
+
+      for (const key in cart) {
+        if (cart[key] > 0) {
+          let sauceInfo = "";
+          const cardEl = document.querySelector(`.menu-card[data-id="${key}"]`);
+          const sauceSelect = cardEl ? cardEl.querySelector('.sauce-select') : null;
+          if (sauceSelect) {
+            sauceInfo = ` (${sauceSelect.value})`;
+          }
+          text += `• ${cart[key]}x ${names[key]}${sauceInfo} - $${cart[key] * prices[key]} MXN\n`;
+        }
+      }
+
+      text += `\n💰 *Total Estimado:* $${calculateTotal()} MXN\n`;
+      text += `\n¡Quedo a la espera de su confirmación!`;
+
+      // Codificar para URL
+      const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      
+      // Abrir WhatsApp
+      window.open(whatsappUrl, '_blank');
+      closeCheckout();
+    }
+  </script>
 
 </body>
 </html>
