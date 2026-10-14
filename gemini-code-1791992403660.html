@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mr. Boneless | Los mejores boneless y alitas en Querétaro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ff4500;
+      --primary-hover: #e03d00;
+      --dark: #121212;
+      --card-bg: #1e1e1e;
+      --text: #ffffff;
+      --text-muted: #a0a0a0;
+      --star: #ffc107;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1527477396000-e27163b481c2?q=80&w=1200&auto=format&fit=crop') center/cover;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .rating-header {
+      font-size: 1.2rem;
+      color: var(--star);
+      margin-bottom: 15px;
+    }
+
+    .rating-header span {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background-color: white;
+      color: var(--dark);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid #2a2a2a;
+    }
+
+    .card h2 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    .info-item {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .info-item strong {
+      color: var(--text);
+    }
+
+    .menu-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .menu-item {
+      background-color: #282828;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .reviews-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .review-card {
+      background-color: var(--card-bg);
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .review-author {
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .stars {
+      color: var(--star);
+      margin-bottom: 10px;
+    }
+
+    .features-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .feature-tag {
+      background-color: #2a2a2a;
+      padding: 6px 14px;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #0a0a0a;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid #222;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="badge">Restaurante</span>
+    <h1>Mr. Boneless</h1>
+    <div class="rating-header">
+      ★ 4.8 <span>(18 reseñas)</span> • $100 - $200 por persona
+    </div>
+    <div class="hero-buttons">
+      <a href="tel:4428677381" class="btn btn-primary">Pedir en línea / Teléfono</a>
+      <a href="https://maps.google.com/?q=Camino+Real+de+Carretas+359-Loc+12,+Milenio+III,+76060+Santiago+de+Querétaro,+Qro." target="_blank" class="btn btn-secondary">Cómo llegar</a>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <div class="grid-2">
+      <!-- Información del Local -->
+      <div class="card">
+        <h2>Ubicación y Horarios</h2>
+        <div class="info-item">
+          📍 <div><strong>Dirección:</strong><br>Camino Real de Carretas 359-Loc 12, Milenio III, 76060 Santiago de Querétaro, Qro.</div>
+        </div>
+        <div class="info-item">
+          🕒 <div><strong>Horario:</strong><br>Abre a la 1:30 p.m.</div>
+        </div>
+        <div class="info-item">
+          📞 <div><strong>Teléfono:</strong><br><a href="tel:4428677381" style="color: var(--primary); text-decoration: none;">442 867 7381</a></div>
+        </div>
+        <div class="info-item">
+          💳 <div><strong>Pagos:</strong> Tarjetas de crédito y débito</div>
+        </div>
+      </div>
+
+      <!-- Menú Destacado -->
+      <div class="card">
+        <h2>Menú Destacado</h2>
+        <p style="margin-bottom: 15px; color: var(--text-muted);">Especialidades preparadas al momento:</p>
+        <div class="menu-highlights">
+          <div class="menu-item">🍗 Boneless</div>
+          <div class="menu-item">🔥 Alitas Buffalo</div>
+          <div class="menu-item">🍯 Hot BBQ</div>
+          <div class="menu-item">🍔 Hamburguesas</div>
+          <div class="menu-item">🍟 Papas Fritas</div>
+        </div>
+        <h3 style="margin-top: 20px; font-size: 1.1rem;">Servicios y Ambiente</h3>
+        <div class="features-list">
+          <span class="feature-tag">Consumo en el lugar</span>
+          <span class="feature-tag">Para llevar / Domicilio</span>
+          <span class="feature-tag">Ambiente Relajado e Informal</span>
+          <span class="feature-tag">Estacionamiento gratuito</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reseñas -->
+    <div class="reviews-section">
+      <h2>Lo que dicen nuestros clientes</h2>
+      <div class="reviews-grid">
+        
+        <div class="review-card">
+          <div class="review-author">Sergio GP</div>
+          <div class="stars">★★★★★</div>
+          <p>"Muy rico sus Boneless, muy recomendable!!!"</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-author">Laura Leticia Álvarez</div>
+          <div class="stars">★★★★★</div>
+          <p>"Estas alitas están de 10 y los boneless 🤤 se nota que están hechos al momento 👌 además el servicio super rápido..."</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-author">QUERÉTARO CITY</div>
+          <div class="stars">★★★★★</div>
+          <p>"El equipo de Querétaro City aprueba estas alitas, pedimos de Buffalo y Hot BBQ y no nos arrepentimos de nada, muy rico todo."</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Mr. Boneless — Milenio III, Santiago de Querétaro, Qro.</p>
+  </footer>
+
+</body>
+</html>
